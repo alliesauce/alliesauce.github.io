@@ -1,0 +1,34 @@
+Pseudo Code
+
+starting screen:
+
+NUMBER MUNCHERS
+Pick the tiles that are divisible by 7
+Grid of 3x3 with various numbers on them
+
+FUNCTIONALITY (in parens is bonus)
+Ready Player One!
+(when user hovers over title, outline it)
+when user clicks on title, check if true or fales
+  if true
+    tile "turns over" to blank/solid color
+    add 1 to user points
+  if false
+    display WRONG
+    deduct 1 from user points (negative balance OK)
+  play for 30 seconds
+
+Ready Player Two!
+when user clicks on title, check if true or fales
+  if true
+    tile "turns over" to blank/solid color
+    add 1 to user points
+  if false
+    display WRONG
+    deduct 1 from user points (negative balance OK)
+  play for 30 seconds
+
+Compare both scores, declare winner
+
+(look into cookies to store high scores)
+(turn mouse cursor into muncher character)
