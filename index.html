@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Number Munchers</title>
+  <link rel='stylesheet' href='numberMunchers.css'>
+  <script type='text/javascript' src='jquery.js'></script>
 </head>
 <body>
-
-  <h1>Number Munchers</h1>
-  <div class='instructions'>
-    <h2>DIVISIBLE BY 7</h2>
-    <p>Select as many tiles below that are divisible by 7 as you can in 15 seconds. You will earn 1 point for every correct click and 1 point will be deducted for every wrong.</p>
+<main>
+  <h1 class='game-title'>NUMBER MUNCHERS</h1>
+  <p>
+    <h2 class='objective'>DIVISIBLE BY 7</h2>
+    <p class='instructions'>Select as many tiles below that are divisible by 7 as you can in 15 seconds. You will earn 1 point for every correct click and 1 point will be deducted for every wrong click. Good luck!</p>
+  </p>
+  <div id='game-board'>
+    <div class='number-tile'>14</div>
+    <div class='number-tile'>72</div>
+    <div class='number-tile'>39</div>
+    <div class='number-tile'>21</div>
+    <div class='number-tile'>63</div>
+    <div class='number-tile'>51</div>
+    <div class='number-tile'>18</div>
+    <div class='number-tile'>84</div>
+    <div class='number-tile'>32</div>
   </div>
+  <div id='ready-player'>READY PLAYER ONE!</div>
 
-
+  <div class='score-board'>
+    <p>Player One: </p>
+    <p>Player Two: </p>
+    <p class='score1'></p>
+    <p class='score2'></p>
+  </div>
+</main>
+<main class='winnerPage'>
+  <h1 class='winner'>And the winner is....
+  <div class='winner1or2'></div>
+  </h1>
+</main class='winnerPage'>
 </body>
+<script type='text/javascript' src='script.js'></script>
 </html>

@@ -1,0 +1,83 @@
+body {
+  font-family: Lucida Console, Monaco5, monospace;
+  background-color: #000030;
+  color: white;
+  height: 980px;
+  width: 980px;
+  margin: 0 auto;
+}
+
+main {}
+
+p {
+  text-align: justify;
+}
+
+h1.game-title {
+  text-align: center;
+}
+
+h2.objective {
+  text-align: center;
+}
+
+div#game-board.ready-player {
+  background-color: #000077;
+  opacity: 0;
+  width: 500px;
+  width: 800px;
+  font-size: 48px;
+  text-align: center;
+  color: white;
+  position: absolute;
+}
+
+div#ready-player {
+  display: none;
+  max-height: 500px;
+  width: 800px;
+  /*border: 10px solid white;*/
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 200px;
+}
+
+div#game-board {
+  margin: 0 auto;
+  height: 500px;
+  width: 800px;
+  border: 10px solid white;
+  position: absolute;
+  z-index: 1;
+}
+
+div.number-tile {
+  border: 4px solid white;
+  float: left;
+  width: 250px;
+  height: 150px;
+  line-height: 150px;
+  margin: 4px;
+  text-align: center;
+  align-content: center;
+  font-size: 36px;
+}
+
+div.score-board {
+  position: relative;
+  height: 200px;
+  width: 800px;
+  margin-top: 600px;
+}
+
+p.score1 {}
+
+p.score2 {}
+
+/*point is to hide the regular main page and show this instead*/
+main.winnerPage {}
+
+h1.winner {}
+
+div.winner1or2 {}

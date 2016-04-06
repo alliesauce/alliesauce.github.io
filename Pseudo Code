@@ -7,6 +7,7 @@ Pick the tiles that are divisible by 7
 Grid of 3x3 with various numbers on them
 
 FUNCTIONALITY (in parens is bonus)
+(players one and two can enter their own names)
 Ready Player One!
 (when user hovers over title, outline it)
 when user clicks on title, check if true or fales
