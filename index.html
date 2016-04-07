@@ -8,7 +8,7 @@
   <script type='text/javascript' src='jquery.js'></script>
 </head>
 <body>
-<main>
+<main class='clearfix'>
   <h1 class='game-title'>NUMBER MUNCHERS</h1>
   <p>
     <h2 class='objective'>DIVISIBLE BY 7</h2>
@@ -26,16 +26,20 @@
     <div class='number-tile' id='9'>32</div>
 
   </div>
-  <div id='ready-player'>READY PLAYER ONE! <br><br>
-  Click here to start<br><br>
-  <span id='countdown'></span></div>
+  <div id='ready-player1'>READY PLAYER ONE! <br><br>
+  Click here to start your turn<br><br>
+  <span id='countdown1'></span></div>
+  <div id='ready-player2'>READY PLAYER TWO! <br><br>
+  Click here to start your turn<br><br>
+  <span id='countdown2'></span></div>
+  <div id='turn-over'>YOUR TURN IS OVER! <br><br>
+  Click here to continue</div>
 
   <div class='score-board'>
-    <p>Player One Total: </p>
     <p class='score' id='score1'></p>
-    <p>Player Two Total: </p>
     <p class='score' id='score2'></p>
   </div>
+  <div class='game-time'>Timer: <span id='count-timer'>15</span> seconds</div>
 </main>
 <main class='winnerPage'>
   <h1 class='winner'>And the winner is....

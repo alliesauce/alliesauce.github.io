@@ -6,6 +6,20 @@ body {
   margin: 0 auto;
 }
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
 main {}
 
 p {
@@ -35,10 +49,28 @@ div#game-board.ready-player {
   position: absolute;
 }
 
-div#ready-player {
+div#turn-over {
+  display: none;
   max-height: 500px;
   width: 800px;
-  /*border: 10px solid white;*/
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 100px;
+}
+div#ready-player1 {
+  max-height: 500px;
+  width: 800px;
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 100px;
+}
+
+div#ready-player2 {
+  display: none;
+  max-height: 500px;
+  width: 800px;
   position: absolute;
   font-size: 48px;
   text-align: center;
@@ -85,15 +117,29 @@ div.number-tile.tile-done {
 }
 
 div.score-board {
-  position: relative;
-  height: 200px;
-  width: 800px;
+  float: left;
+  display: inline-block;
+  height: 100px;
+  width: 200px;
   margin-top: 600px;
+  border: 4px solid white;
+  padding-left: 10px;
+  line-height: 22px;
+  font-size: 22px;
+}
+div.game-time {
+  display: inline-block;
+  height: 100px;
+  width: 520px;
+  margin-top: 600px;
+  margin-left: 50px;
+  border: 4px solid white;
+  padding-left: 10px;
+  align-content: center;
+  font-size: 44px;
+  line-height: 100px;
 }
 
-p.score1 {}
-
-p.score2 {}
 
 /*point is to hide the regular main page and show this instead*/
 main.winnerPage {}
