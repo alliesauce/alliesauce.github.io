@@ -136,10 +136,11 @@ $(document).ready(function(){
   readyPlayerTwo.one('click', function() {
     setTimeout(function() {
       readyPlayerTwo.hide();
-      gameBoard.load ('index.html #game-board');
+      //gameBoard.load ('index.html #game-board');
+      gameBoard.load(document.URL + ' #game-board');
       //gameBoardReload();
+      gameBoard.show();
     }, 4000);
-    gameBoard.show();
     var endCountdown = function () {
     }
     var handleTimer = function () {
