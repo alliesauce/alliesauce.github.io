@@ -7,7 +7,7 @@ $(document).ready(function(){
   var readyPlayerTwo = $('#ready-player2');
   var turnOver = $('#turn-over');
   var gameBoard = $('#game-board');
-  var gameBoard2 =gameBoard;
+  //var gameBoard2 =gameBoard;
   /*var tileOne = $('#1');
   var tileTwo = $('#2');
   var tileThree = $('#3');
@@ -24,11 +24,15 @@ $(document).ready(function(){
   var twoBankValue = 0;
   var timer = $('#count-timer');
 
-
   playerOneBank.html('Player One: ' + oneBankValue);
   playerTwoBank.html('Player Two: ' + twoBankValue);
-  //timer.html('Timer: 15 seconds');
 
+  //function to reload only gameboard div after first player's turn
+  /*var gameBoardReload = function () {
+    //var gameBoard = $('#game-board');
+    var boardContent = gameBoard.innerHTML;
+    gameBoard.innerHTML = boardContent;
+  };*/
 
   //show gameBoard, hid Ready Player message upon click after three seconds (only first time will work)
   readyPlayerOne.one('click', function() {
@@ -132,6 +136,8 @@ $(document).ready(function(){
   readyPlayerTwo.one('click', function() {
     setTimeout(function() {
       readyPlayerTwo.hide();
+      gameBoard.load ('index.html #game-board');
+      //gameBoardReload();
       gameBoard.show();
     }, 4000);
     var endCountdown = function () {
