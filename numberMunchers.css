@@ -76,6 +76,15 @@ div#ready-player2 {
   text-align: center;
   padding-top: 100px;
 }
+div.winner-page {
+  display: none;
+  max-height: 500px;
+  width: 800px;
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 100px;
+}
 
 div#game-board {
   display: none;
@@ -86,7 +95,21 @@ div#game-board {
   position: absolute;
   z-index: 1;
 }
+
+div#game-board2 {
+  display: none;
+  margin: 0 auto;
+  height: 500px;
+  width: 800px;
+  border: 10px solid white;
+  position: absolute;
+  z-index: 1;
+}
+
 div.number-tile.wrong {
+  font-size: 12px;
+}
+div.number-tile2.wrong {
   font-size: 12px;
 }
 
@@ -102,8 +125,31 @@ div.number-tile {
   align-content: center;
   font-size: 36px;
 }
+div.number-tile2 {
+  border: 4px solid white;
+  float: left;
+  width: 250px;
+  height: 150px;
+  line-height: 150px;
+  margin: 4px;
+  text-align: center;
+  align-content: center;
+  font-size: 36px;
+}
 
 div.number-tile.tile-done {
+  border: 4px solid white;
+  float: left;
+  width: 250px;
+  height: 150px;
+  line-height: 150px;
+  margin: 4px;
+  text-align: center;
+  align-content: center;
+  font-size: 36px;
+  color: #000030;
+}
+div.number-tile2.tile-done {
   border: 4px solid white;
   float: left;
   width: 250px;

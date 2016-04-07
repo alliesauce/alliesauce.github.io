@@ -7,17 +7,9 @@ $(document).ready(function(){
   var readyPlayerTwo = $('#ready-player2');
   var turnOver = $('#turn-over');
   var gameBoard = $('#game-board');
-  //var gameBoard2 =gameBoard;
-  /*var tileOne = $('#1');
-  var tileTwo = $('#2');
-  var tileThree = $('#3');
-  var tileFour = $('#4');
-  var tileFive = $('#5');
-  var tileSix = $('#6');
-  var tileSeven = $('#7');
-  var tileEight = $('#8');
-  var tileNine = $('#9');*/
+  var gameBoard2 = $('#game-board2');
   var anyTile = $('.number-tile');
+  var anyTile2 = $('.number-tile2');
   var playerOneBank = $('#score1');
   var oneBankValue = 0;
   var playerTwoBank = $('#score2');
@@ -66,7 +58,8 @@ $(document).ready(function(){
     setTimeout(function() {
       gameBoard.hide();
       turnOver.show();
-    }, 16000);
+    //NEED TO FIX THIS BACK TO 16000 when game ready. for testing purposes only, shortened
+    }, 15000);
     //adds time countdown to timer at bottom of gameboard
     var endCountdown = function () {
     };
@@ -80,7 +73,7 @@ $(document).ready(function(){
         count --;
       };
     };//end of HandleTimer statement
-    var count = 15;
+    var count = 14;
     var timer = setInterval(function() {
       handleTimer(count);
     }, 1000);
@@ -126,20 +119,17 @@ $(document).ready(function(){
         };//end of else statement
       });//end of anyTile statement
     //};//end of updateTime statement
-
-
-  turnOver.on('click', function() {
+  turnOver.one('click', function() {
     turnOver.hide();
     readyPlayerTwo.show();
   })
-
   readyPlayerTwo.one('click', function() {
     setTimeout(function() {
       readyPlayerTwo.hide();
       //gameBoard.load ('index.html #game-board');
-      gameBoard.load(document.URL + ' #game-board');
+      //gameBoard.load(document.URL + ' #game-board');
       //gameBoardReload();
-      gameBoard.show();
+      gameBoard2.show();
     }, 4000);
     var endCountdown = function () {
     }
@@ -157,15 +147,15 @@ $(document).ready(function(){
       handleTimer(count);
     }, 1000);
   });
-
-
-  /*gameBoard2.one('click', function() {
+  gameBoard2.one('click', function() {
     $(this).css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
     //hides gameboard after 15 seconds, displays Turn Over
     setTimeout(function() {
+      readyPlayerTwo.hide();
       gameBoard2.hide();
       turnOver.show();
-    }, 16000);
+      //NEED TO SET BACK TO CORRECT TIME when game ready
+    }, 15000);
     //adds time countdown to timer at bottom of gameboard
     var endCountdown = function () {
     };
@@ -179,40 +169,67 @@ $(document).ready(function(){
         count --;
       };
     };//end of HandleTimer statement
-    var count = 15;
+    var count = 14;
     var timer = setInterval(function() {
       handleTimer(count);
     }, 1000);
   });//end of gameBoard on click statement
-      anyTile.on('click', function() {
-        var tileVal = $(this).html();
-        var tileVal = parseInt(tileVal);
-        if (tileVal % 7 == 0) {
-          twoBankValue ++;
-          playerTwoBank.html('Player Two: ' + twoBankValue);
-          var getTile = $(this);
-          getTile.html('MUNCHED');
-          setTimeout(function() {
-            //getTile.css({'cursor': 'none'});
-            getTile.addClass('tile-done');
-          }, 1500);
-        } else {
-          //console.log('does not match instructions');
-          //if the tile does not match instructions, displays wrong message briefly, then returns to original value
-          twoBankValue --;
-          playerTwoBank.html('Player Two: ' + twoBankValue);
-          var getTile = $(this);
-          var origTileVal = getTile.html();
-          setTimeout(function() {
-            getTile.addClass('wrong');
-            getTile.html('Wrong! Minus one point!');
-          }, 500);
-          setTimeout(function() {
-            getTile.removeClass('wrong');
-            getTile.html(origTileVal);
-          }, 1500);
-        };//end of else statement
-      });//end of anyTile statement*/
+  anyTile2.on('click', function() {
+    var tileVal = $(this).html();
+    var tileVal = parseInt(tileVal);
+    if (tileVal % 7 == 0) {
+      twoBankValue ++;
+      playerTwoBank.html('Player Two: ' + twoBankValue);
+      var getTile = $(this);
+      getTile.html('MUNCHED');
+      setTimeout(function() {
+      //getTile.css({'cursor': 'none'});
+      getTile.addClass('tile-done');
+    }, 1500);
+    } else {
+    //console.log('does not match instructions');
+    //if the tile does not match instructions, displays wrong message briefly, then returns to original value
+      twoBankValue --;
+      playerTwoBank.html('Player Two: ' + twoBankValue);
+      var getTile = $(this);
+      var origTileVal = getTile.html();
+      setTimeout(function() {
+      getTile.addClass('wrong');
+      getTile.html('Wrong! Minus one point!');
+      }, 500);
+      setTimeout(function() {
+        getTile.removeClass('wrong');
+        getTile.html(origTileVal);
+      }, 1500);
+    };//end of else statement
+  });//end of anyTile statement*/
+
+          //function to find winner
+      var winner;
+      var getWinner = function() {
+        if (oneBankValue > twoBankValue) {
+          winner = 'Player One is the winner!';
+          //return winner;
+        } else if (oneBankValue < twoBankValue) {
+          winner = 'Player Two is the winner!';
+          //return winner;
+        } else if (oneBankValue === twoBankValue) {
+          winner = 'You two are evenly matched. It\'\s a tie!'
+          //return winner;
+        } return winner;
+      }    //end of getWinner function
+
+  //hack to delay adding the class to the turnover page until after the first time it's shown
+  setTimeout(function() {
+    turnOver.addClass('end-game');
+    $('.winner-page').text(getWinner());
+  }, 40000);
+
+  $('#turn-over').on('click', function () {
+    this.hide();
+    $('div.winner-page').show();
+  })
+
 });
 
 
