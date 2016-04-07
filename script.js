@@ -138,8 +138,8 @@ $(document).ready(function(){
       readyPlayerTwo.hide();
       gameBoard.load ('index.html #game-board');
       //gameBoardReload();
-      gameBoard.show();
     }, 4000);
+    gameBoard.show();
     var endCountdown = function () {
     }
     var handleTimer = function () {
