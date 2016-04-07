@@ -23,3 +23,8 @@
       console.log('not divisible by 7');
     }
   });
+
+
+
+css
+<div class='number-tile' id='wrong'>Wrong! Minus 1 point!</div>

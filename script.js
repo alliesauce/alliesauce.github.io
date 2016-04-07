@@ -15,6 +15,17 @@ $(document).ready(function(){
   var tileEight = $('#8');
   var tileNine = $('#9');*/
   var anyTile = $('.number-tile');
+  var playerOneBank = $('#score1');
+  var oneBankValue = 0;
+  var playerTwoBank = $('#score2');
+  var twoBankValue = 0;
+
+  playerOneBank.html(oneBankValue);
+  playerTwoBank.html(twoBankValue);
+
+  /*STARTING POINT FOR THURSDAY - player banks from being two separate p tags into one, and just updating the text all together*/
+
+
 
 
   //show gameBoard, hid Ready Player message upon click after three seconds (only first time will work)
@@ -47,7 +58,8 @@ $(document).ready(function(){
     $(this).css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
   });
 
-  //when click on a tile, checks if divisble by 7. If divisible by 7, changes to solid color. FUTURE funcitonality: if divisible by 7, add point to user total. if not divisible by 7 (and user clicked), display error message briefly, deduct 1 point from user total
+  //when click on a tile, checks if divisble by 7. If divisible by 7, changes to solid color. If not divisible by 7 after user click, display error message briefly
+  //FUTURE funcitonality: if divisible by 7, add point to user total. if not divisible by 7 (and user clicked), deduct 1 point from user total
   anyTile.on('click', function() {
     //console.log('you clicked a tile');
     var tileVal = $(this).html();
@@ -60,8 +72,12 @@ $(document).ready(function(){
       var getTile = $(this);
       getTile.html('MUNCHED');
       setTimeout(function() {
+        //getTile.css({'cursor': 'none'});
         getTile.addClass('tile-done');
       }, 1500);
+    /*gameBoard.on('hover', function() {   CAN'T GET MOUSE TO TEMPORARILY HIDE
+      gameBoard.css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
+    });*/
 
     } else {
       //console.log('does not match instructions');

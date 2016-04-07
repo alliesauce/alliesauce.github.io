@@ -20,6 +20,10 @@ h2.objective {
   text-align: center;
 }
 
+p.score {
+  position: relative;
+}
+
 div#game-board.ready-player {
   background-color: #000077;
   opacity: 0;
