@@ -59,8 +59,7 @@ $(document).ready(function(){
     setTimeout(function() {
       gameBoard.hide();
       turnOver.show();
-    //NEED TO FIX THIS BACK TO 16000 when game ready. for testing purposes only, shortened
-    }, 15000);
+    }, 16000);
     //adds time countdown to timer at bottom of gameboard
     var endCountdown = function () {
     };
@@ -80,7 +79,7 @@ $(document).ready(function(){
     }, 1000);
   });//end of gameBoard on click statement
 
-  //when click on a tile, checks if divisble by 7. If divisible by 7, changes to solid color and add point to user total.  If not divisible by 7 after user click, display error message briefly and deduct 1 point from user total
+  //when click on a tile, checks if divisble by 7. If divisible by 7, changes to solid color and add 5 points to user total.  If not divisible by 7 after user click, display error message briefly and deduct 1 point from user total
       anyTile.on('click', function() {
         //console.log('you clicked a tile');
         var tileVal = $(this).html();
@@ -90,7 +89,7 @@ $(document).ready(function(){
         if (tileVal % 7 == 0) {
           //console.log('matches instructions');
           //if the tile matches instructions, then display a success message briefly, then turn it blank
-          oneBankValue ++;
+          oneBankValue += 5;
           //console.log(oneBankValue);
           playerOneBank.html('Player One: ' + oneBankValue);
           var getTile = $(this);
@@ -154,7 +153,7 @@ $(document).ready(function(){
       turnOver2.show();
       //turnOver.addClass('end-game');
       document.getElementById('winner-page').style.display = 'none';
-    }, 15000);
+    }, 16000);
     //adds time countdown to timer at bottom of gameboard
     var endCountdown = function () {
     };
@@ -177,7 +176,7 @@ $(document).ready(function(){
     var tileVal = $(this).html();
     var tileVal = parseInt(tileVal);
     if (tileVal % 7 == 0) {
-      twoBankValue ++;
+      twoBankValue += 5;
       playerTwoBank.html('Player Two: ' + twoBankValue);
       var getTile = $(this);
       getTile.html('MUNCHED');
@@ -202,41 +201,23 @@ $(document).ready(function(){
       }, 1500);
     };//end of else statement
   });//end of anyTile statement*/
-
           //function to find winner
       var winner;
       var getWinner = function() {
         if (oneBankValue > twoBankValue) {
-          winner = 'Player One is the winner!';
+          winner = 'Player One wins!';
           //return winner;
         } else if (oneBankValue < twoBankValue) {
-          winner = 'Player Two is the winner!';
+          winner = 'Player Two wins!';
           //return winner;
         } else if (oneBankValue === twoBankValue) {
           winner = 'You two are evenly matched. It\'\s a tie!'
           //return winner;
         } return winner;
       }    //end of getWinner function
-
-  //hack to delay adding the class to the turnover page until after the first time it's shown
-  /*setTimeout(function() {
-    turnOver.addClass('end-game');
-    document.getElementById('winner-page').style.display = 'none';
-    //$('#winner-page').text(getWinner());
-
-  }, 40000);*/
-
   turnOver2.on('click', function () {
     $('#winner-page').text(getWinner());
     turnOver2.hide();
-    //document.getElementById('turn-over').style.display = 'none';
-    //this.css('display', none);
     document.getElementById('winner-page').style.display = 'block';
   })
-
 });
-
-
-
-
-

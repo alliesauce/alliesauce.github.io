@@ -6,22 +6,6 @@ body {
   margin: 0 auto;
 }
 
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-
-main {}
-
 p {
   text-align: justify;
 }
@@ -32,21 +16,16 @@ h1.game-title {
 
 h2.objective {
   text-align: center;
+  border-top: 4px solid orange;
+  border-bottom: 4px solid orange;
+  height: 40px;
+  max-width: 500px;
+  margin: auto;
+  line-height: 40px;
 }
 
 p.score {
   position: relative;
-}
-
-div#game-board.ready-player {
-  background-color: #000077;
-  opacity: 0;
-  width: 500px;
-  width: 800px;
-  font-size: 48px;
-  text-align: center;
-  color: white;
-  position: absolute;
 }
 
 div#turn-over {
@@ -54,7 +33,7 @@ div#turn-over {
   max-height: 500px;
   width: 800px;
   position: absolute;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
@@ -63,7 +42,7 @@ div#turn-over2 {
   max-height: 500px;
   width: 800px;
   position: absolute;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
@@ -71,7 +50,7 @@ div#ready-player1 {
   max-height: 500px;
   width: 800px;
   position: absolute;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
@@ -81,7 +60,7 @@ div#ready-player2 {
   max-height: 500px;
   width: 800px;
   position: absolute;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
@@ -90,7 +69,7 @@ div#winner-page {
   max-height: 500px;
   width: 800px;
   position: absolute;
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
@@ -103,9 +82,8 @@ div#game-board {
   margin: 0 auto;
   height: 500px;
   width: 800px;
-  border: 10px solid white;
+  border: 10px solid magenta;
   position: absolute;
-  z-index: 1;
 }
 
 div#game-board2 {
@@ -113,64 +91,70 @@ div#game-board2 {
   margin: 0 auto;
   height: 500px;
   width: 800px;
-  border: 10px solid white;
+  border: 10px solid magenta;
   position: absolute;
-  z-index: 1;
 }
 
 div.number-tile.wrong {
   font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 div.number-tile2.wrong {
   font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-
 
 div.number-tile {
-  border: 4px solid white;
+  border: 4px solid magenta;
   float: left;
-  width: 250px;
-  height: 150px;
-  line-height: 150px;
+  width: 117px;
+  height: 84px;
+  line-height: 84px;
   margin: 4px;
   text-align: center;
   align-content: center;
-  font-size: 36px;
+  font-size: 24px;
 }
 div.number-tile2 {
-  border: 4px solid white;
+  border: 4px solid magenta;
   float: left;
-  width: 250px;
-  height: 150px;
-  line-height: 150px;
+  width: 117px;
+  height: 84px;
+  line-height: 84px;
   margin: 4px;
   text-align: center;
   align-content: center;
-  font-size: 36px;
+  font-size: 24px;
 }
 
 div.number-tile.tile-done {
-  border: 4px solid white;
+  border: 4px solid magenta;
   float: left;
-  width: 250px;
-  height: 150px;
-  line-height: 150px;
+  width: 117px;
+  height: 84px;
+  line-height: 84px;
   margin: 4px;
   text-align: center;
   align-content: center;
-  font-size: 36px;
+  font-size: 0px;
   color: #000030;
 }
 div.number-tile2.tile-done {
-  border: 4px solid white;
+  border: 4px solid magenta;
   float: left;
-  width: 250px;
-  height: 150px;
-  line-height: 150px;
+  width: 117px;
+  height: 84px;
+  line-height: 84px;
   margin: 4px;
   text-align: center;
   align-content: center;
-  font-size: 36px;
+  font-size: 0px;
   color: #000030;
 }
 
@@ -180,7 +164,7 @@ div.score-board {
   height: 100px;
   width: 200px;
   margin-top: 600px;
-  border: 4px solid white;
+  border: 4px solid blue;
   padding-left: 10px;
   line-height: 22px;
   font-size: 22px;
@@ -191,10 +175,10 @@ div.game-time {
   width: 520px;
   margin-top: 600px;
   margin-left: 50px;
-  border: 4px solid white;
+  border: 4px solid blue;
   padding-left: 10px;
   align-content: center;
-  font-size: 44px;
+  font-size: 36px;
   line-height: 100px;
 }
 

@@ -17,7 +17,7 @@ when user clicks on title, check if true or fales
   if false
     display WRONG
     deduct 1 from user points (negative balance OK)
-  play for 30 seconds
+  play for 15 seconds
 
 Ready Player Two!
 when user clicks on title, check if true or fales
@@ -27,7 +27,7 @@ when user clicks on title, check if true or fales
   if false
     display WRONG
     deduct 1 from user points (negative balance OK)
-  play for 30 seconds
+  play for 15 seconds
 
 Compare both scores, declare winner
 
