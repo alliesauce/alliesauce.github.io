@@ -58,6 +58,15 @@ div#turn-over {
   text-align: center;
   padding-top: 100px;
 }
+div#turn-over2 {
+  display: none;
+  max-height: 500px;
+  width: 800px;
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 100px;
+}
 div#ready-player1 {
   max-height: 500px;
   width: 800px;
@@ -76,7 +85,7 @@ div#ready-player2 {
   text-align: center;
   padding-top: 100px;
 }
-div.winner-page {
+div#winner-page {
   display: none;
   max-height: 500px;
   width: 800px;
@@ -84,6 +93,9 @@ div.winner-page {
   font-size: 48px;
   text-align: center;
   padding-top: 100px;
+}
+div#winner-page.end-game {
+  display: none;
 }
 
 div#game-board {
@@ -187,9 +199,4 @@ div.game-time {
 }
 
 
-/*point is to hide the regular main page and show this instead*/
-main.winnerPage {}
 
-h1.winner {}
-
-div.winner1or2 {}

@@ -6,6 +6,7 @@ $(document).ready(function(){
   var readyPlayerOne = $('#ready-player1');
   var readyPlayerTwo = $('#ready-player2');
   var turnOver = $('#turn-over');
+  var turnOver2 = $('#turn-over2');
   var gameBoard = $('#game-board');
   var gameBoard2 = $('#game-board2');
   var anyTile = $('.number-tile');
@@ -32,7 +33,7 @@ $(document).ready(function(){
     setTimeout(function() {
       readyPlayerOne.hide();
       gameBoard.show();
-    }, 4000);
+    }, 3500);
     //adds countdown to ready player page before switching to gameboard
     var endCountdown = function () {
     }
@@ -119,18 +120,15 @@ $(document).ready(function(){
         };//end of else statement
       });//end of anyTile statement
     //};//end of updateTime statement
-  turnOver.one('click', function() {
+  turnOver.on('click', function() {
     turnOver.hide();
     readyPlayerTwo.show();
   })
   readyPlayerTwo.one('click', function() {
     setTimeout(function() {
       readyPlayerTwo.hide();
-      //gameBoard.load ('index.html #game-board');
-      //gameBoard.load(document.URL + ' #game-board');
-      //gameBoardReload();
       gameBoard2.show();
-    }, 4000);
+    }, 3500);
     var endCountdown = function () {
     }
     var handleTimer = function () {
@@ -153,8 +151,9 @@ $(document).ready(function(){
     setTimeout(function() {
       readyPlayerTwo.hide();
       gameBoard2.hide();
-      turnOver.show();
-      //NEED TO SET BACK TO CORRECT TIME when game ready
+      turnOver2.show();
+      //turnOver.addClass('end-game');
+      document.getElementById('winner-page').style.display = 'none';
     }, 15000);
     //adds time countdown to timer at bottom of gameboard
     var endCountdown = function () {
@@ -220,14 +219,19 @@ $(document).ready(function(){
       }    //end of getWinner function
 
   //hack to delay adding the class to the turnover page until after the first time it's shown
-  setTimeout(function() {
+  /*setTimeout(function() {
     turnOver.addClass('end-game');
-    $('.winner-page').text(getWinner());
-  }, 40000);
+    document.getElementById('winner-page').style.display = 'none';
+    //$('#winner-page').text(getWinner());
 
-  $('#turn-over').on('click', function () {
-    this.hide();
-    $('div.winner-page').show();
+  }, 40000);*/
+
+  turnOver2.on('click', function () {
+    $('#winner-page').text(getWinner());
+    turnOver2.hide();
+    //document.getElementById('turn-over').style.display = 'none';
+    //this.css('display', none);
+    document.getElementById('winner-page').style.display = 'block';
   })
 
 });

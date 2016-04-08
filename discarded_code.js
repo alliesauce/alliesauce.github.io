@@ -24,7 +24,15 @@
     }
   });
 
-
+/*var tileOne = $('#1');
+  var tileTwo = $('#2');
+  var tileThree = $('#3');
+  var tileFour = $('#4');
+  var tileFive = $('#5');
+  var tileSix = $('#6');
+  var tileSeven = $('#7');
+  var tileEight = $('#8');
+  var tileNine = $('#9');*/
 
 css
 <div class='number-tile' id='wrong'>Wrong! Minus 1 point!</div>
