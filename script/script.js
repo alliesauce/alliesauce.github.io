@@ -54,7 +54,7 @@ $(document).ready(function(){
 
   //turns mouse curser into number muncher graphic
   gameBoard.one('click', function() {
-    $(this).css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
+    $(this).css({'cursor': 'url(img/numbermuncher.jpeg), default'});
     //hides gameboard after 15 seconds, displays Turn Over
     setTimeout(function() {
       gameBoard.hide();
@@ -92,6 +92,9 @@ $(document).ready(function(){
           oneBankValue += 5;
           //console.log(oneBankValue);
           playerOneBank.html('Player One: ' + oneBankValue);
+          //makes munch sound when you click a tile:
+          var bite = new Audio('http://www.midistern.de/spuk1.wav');
+          bite.play();
           var getTile = $(this);
           getTile.html('MUNCHED');
           setTimeout(function() {
@@ -99,13 +102,16 @@ $(document).ready(function(){
             getTile.addClass('tile-done');
           }, 1500);
         /*gameBoard.on('hover', function() {   CAN'T GET MOUSE TO TEMPORARILY HIDE
-          gameBoard.css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
+          gameBoard.css({'cursor': 'url(img/numbermuncher.jpeg), default'});
         });*/
         } else {
           //console.log('does not match instructions');
           //if the tile does not match instructions, displays wrong message briefly, then returns to original value
           oneBankValue --;
           playerOneBank.html('Player One: ' + oneBankValue);
+          //plays short buzzer if incorrect munch
+          var badBite = new Audio('http://cd.textfiles.com/sbsw/BEEPCHMS/DITDAT.WAV');
+          badBite.play();
           var getTile = $(this);
           var origTileVal = getTile.html();
           setTimeout(function() {
@@ -145,7 +151,7 @@ $(document).ready(function(){
     }, 1000);
   });
   gameBoard2.one('click', function() {
-    $(this).css({'cursor': 'url(number_muchers/numbermuncher.jpeg), default'});
+    $(this).css({'cursor': 'url(img/numbermuncher.jpeg), default'});
     //hides gameboard after 15 seconds, displays Turn Over
     setTimeout(function() {
       readyPlayerTwo.hide();
@@ -178,6 +184,8 @@ $(document).ready(function(){
     if (tileVal % 7 == 0) {
       twoBankValue += 5;
       playerTwoBank.html('Player Two: ' + twoBankValue);
+      var bite = new Audio('http://www.midistern.de/spuk1.wav');
+      bite.play();
       var getTile = $(this);
       getTile.html('MUNCHED');
       setTimeout(function() {
@@ -189,6 +197,8 @@ $(document).ready(function(){
     //if the tile does not match instructions, displays wrong message briefly, then returns to original value
       twoBankValue --;
       playerTwoBank.html('Player Two: ' + twoBankValue);
+      var badBite = new Audio('http://cd.textfiles.com/sbsw/BEEPCHMS/DITDAT.WAV');
+      badBite.play();
       var getTile = $(this);
       var origTileVal = getTile.html();
       setTimeout(function() {

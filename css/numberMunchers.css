@@ -4,10 +4,12 @@ body {
   color: white;
   width: 820px;
   margin: 0 auto;
+  letter-spacing: 1.5px;
 }
 
 p {
   text-align: justify;
+  line-height: 20px;
 }
 
 h1.game-title {
@@ -24,13 +26,9 @@ h2.objective {
   line-height: 40px;
 }
 
-p.score {
-  position: relative;
-}
-
 div#turn-over {
   display: none;
-  max-height: 500px;
+  max-height: 400px;
   width: 800px;
   position: absolute;
   font-size: 36px;
@@ -39,7 +37,7 @@ div#turn-over {
 }
 div#turn-over2 {
   display: none;
-  max-height: 500px;
+  max-height: 400px;
   width: 800px;
   position: absolute;
   font-size: 36px;
@@ -47,7 +45,7 @@ div#turn-over2 {
   padding-top: 100px;
 }
 div#ready-player1 {
-  max-height: 500px;
+  max-height: 400px;
   width: 800px;
   position: absolute;
   font-size: 36px;
@@ -57,7 +55,7 @@ div#ready-player1 {
 
 div#ready-player2 {
   display: none;
-  max-height: 500px;
+  max-height: 400px;
   width: 800px;
   position: absolute;
   font-size: 36px;
@@ -66,21 +64,18 @@ div#ready-player2 {
 }
 div#winner-page {
   display: none;
-  max-height: 500px;
+  max-height: 400px;
   width: 800px;
   position: absolute;
   font-size: 36px;
   text-align: center;
   padding-top: 100px;
 }
-div#winner-page.end-game {
-  display: none;
-}
 
 div#game-board {
   display: none;
   margin: 0 auto;
-  height: 500px;
+  height: 400px;
   width: 800px;
   border: 10px solid magenta;
   position: absolute;
@@ -89,7 +84,7 @@ div#game-board {
 div#game-board2 {
   display: none;
   margin: 0 auto;
-  height: 500px;
+  height: 400px;
   width: 800px;
   border: 10px solid magenta;
   position: absolute;
@@ -114,8 +109,8 @@ div.number-tile {
   border: 4px solid magenta;
   float: left;
   width: 117px;
-  height: 84px;
-  line-height: 84px;
+  height: 64px;
+  line-height: 64px;
   margin: 4px;
   text-align: center;
   align-content: center;
@@ -125,8 +120,8 @@ div.number-tile2 {
   border: 4px solid magenta;
   float: left;
   width: 117px;
-  height: 84px;
-  line-height: 84px;
+  height: 64px;
+  line-height: 64px;
   margin: 4px;
   text-align: center;
   align-content: center;
@@ -137,8 +132,8 @@ div.number-tile.tile-done {
   border: 4px solid magenta;
   float: left;
   width: 117px;
-  height: 84px;
-  line-height: 84px;
+  height: 64px;
+  line-height: 64px;
   margin: 4px;
   text-align: center;
   align-content: center;
@@ -149,8 +144,8 @@ div.number-tile2.tile-done {
   border: 4px solid magenta;
   float: left;
   width: 117px;
-  height: 84px;
-  line-height: 84px;
+  height: 64px;
+  line-height: 64px;
   margin: 4px;
   text-align: center;
   align-content: center;
@@ -163,23 +158,52 @@ div.score-board {
   display: inline-block;
   height: 100px;
   width: 200px;
-  margin-top: 600px;
+  margin-top: 440px;
   border: 4px solid blue;
   padding-left: 10px;
-  line-height: 22px;
-  font-size: 22px;
+  line-height: 20px;
+  font-size: 20px;
+  text-align: left;
 }
 div.game-time {
   display: inline-block;
+  float: left;
   height: 100px;
-  width: 520px;
-  margin-top: 600px;
-  margin-left: 50px;
+  width: 200px;
+  margin-top: 440px;
+  margin-left: 30px;
   border: 4px solid blue;
   padding-left: 10px;
+  text-align: left;
+  font-size: 30px;
+  line-height: 50px;
+}
+
+div.lives {
+  display: inline-block;
+  float: left;
+  height: 100px;
+  width: 305px;
+  margin-top: 440px;
+  margin-left: 30px;
+  border: 4px solid blue;
+  padding-left: 10px;
+  font-size: 20px;
+  line-height: 40px;
   align-content: center;
-  font-size: 36px;
-  line-height: 100px;
+}
+
+div.blank {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+
+div.muncher {
+  float: left;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
 }
 
 
