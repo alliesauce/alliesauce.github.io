@@ -34,5 +34,12 @@
   var tileEight = $('#8');
   var tileNine = $('#9');*/
 
+    //function to reload only gameboard div after first player's turn
+  /*var gameBoardReload = function () {
+    //var gameBoard = $('#game-board');
+    var boardContent = gameBoard.innerHTML;
+    gameBoard.innerHTML = boardContent;
+  };*/
+
 css
 <div class='number-tile' id='wrong'>Wrong! Minus 1 point!</div>

@@ -16,31 +16,48 @@ $(document).ready(function(){
   var playerTwoBank = $('#score2');
   var twoBankValue = 0;
   var timer = $('#count-timer');
+  var muncher = $('.muncher');
+  var playerOneLives = 0;
+  var playerTwoLives = 0;
 
-  playerOneBank.html('Player One: ' + oneBankValue);
-  playerTwoBank.html('Player Two: ' + twoBankValue);
+  //get players names
+  var playerOneName = prompt('Player One, what is your name?', 'Your name here');
+  var playerTwoName = prompt('Player Two, what is your name?', 'Your name here');
 
-  //function to reload only gameboard div after first player's turn
-  /*var gameBoardReload = function () {
-    //var gameBoard = $('#game-board');
-    var boardContent = gameBoard.innerHTML;
-    gameBoard.innerHTML = boardContent;
-  };*/
+  playerOneBank.html(playerOneName + ': ' + oneBankValue);
+  playerTwoBank.html(playerTwoName + ': ' + twoBankValue);
 
+  //fill the livesBox with 3 lives for each player:
+  var livesBox;
+  var fillLives = function() {
+    livesBox = document.getElementById('lives');
+    for (var i = 0; i < 3; i++)
+      addLife();
+  }
+  var addLife = function() {
+    playerOneLives ++;
+    playerTwoLives ++;
+    var life = document.createElement('IMG');
+    life.src = 'img/numbermuncher.jpeg';
+    livesBox.appendChild(life);
+    /*playerTwoLives ++;
+    //var life = document.createElement('IMG');
+    //life.src = '../img/numbermuncher.jpeg';
+    livesBox.appendChild(life);*/
+  }
+  fillLives();
   //show gameBoard, hid Ready Player message upon click after three seconds (only first time will work)
   readyPlayerOne.one('click', function() {
     //console.log('gameboard clicked!');
+    console.log(playerOneName);
     setTimeout(function() {
       readyPlayerOne.hide();
       gameBoard.show();
     }, 3500);
     //adds countdown to ready player page before switching to gameboard
-    var endCountdown = function () {
-    }
     var handleTimer = function () {
       if(count === 0) {
         clearInterval(timer);
-        endCountdown();
       } else {
         $('#countdown1').text(count);
         count --;
@@ -61,12 +78,11 @@ $(document).ready(function(){
       turnOver.show();
     }, 16000);
     //adds time countdown to timer at bottom of gameboard
-    var endCountdown = function () {
-    };
     var handleTimer = function () {
-      if(count === 0) {
+      /*if (playerOneLives === 0) {
+        count = 0;
+      }*/ if (count === 0) {
         clearInterval(timer);
-        endCountdown();
         $('#count-timer').text(count)
       } else {
         $('#count-timer').text(count)
@@ -91,7 +107,7 @@ $(document).ready(function(){
           //if the tile matches instructions, then display a success message briefly, then turn it blank
           oneBankValue += 5;
           //console.log(oneBankValue);
-          playerOneBank.html('Player One: ' + oneBankValue);
+          playerOneBank.html(playerOneName + ': ' + oneBankValue);
           //makes munch sound when you click a tile:
           var bite = new Audio('http://www.midistern.de/spuk1.wav');
           bite.play();
@@ -105,10 +121,18 @@ $(document).ready(function(){
           gameBoard.css({'cursor': 'url(img/numbermuncher.jpeg), default'});
         });*/
         } else {
-          //console.log('does not match instructions');
           //if the tile does not match instructions, displays wrong message briefly, then returns to original value
-          oneBankValue --;
-          playerOneBank.html('Player One: ' + oneBankValue);
+          //remove one life
+            //create removeLife function for incorrect guess
+          var removeLife = function() {
+            if (playerOneLives > 0) {
+              playerOneLives--;
+              livesBox.removeChild(livesBox.lastChild);
+            }
+          }
+          removeLife();
+
+          //playerOneBank.html(playerOneName + ': ' + oneBankValue);
           //plays short buzzer if incorrect munch
           var badBite = new Audio('http://cd.textfiles.com/sbsw/BEEPCHMS/DITDAT.WAV');
           badBite.play();
@@ -116,7 +140,7 @@ $(document).ready(function(){
           var origTileVal = getTile.html();
           setTimeout(function() {
             getTile.addClass('wrong');
-            getTile.html('Wrong! Minus one point!');
+            getTile.html('Wrong! You lost a life!');
           }, 500);
           setTimeout(function() {
             getTile.removeClass('wrong');
@@ -133,13 +157,11 @@ $(document).ready(function(){
     setTimeout(function() {
       readyPlayerTwo.hide();
       gameBoard2.show();
+      fillLives();
     }, 3500);
-    var endCountdown = function () {
-    }
     var handleTimer = function () {
       if(count === 0) {
         clearInterval(timer);
-        endCountdown();
       } else {
         $('#countdown2').text(count);
         count --;
@@ -161,12 +183,9 @@ $(document).ready(function(){
       document.getElementById('winner-page').style.display = 'none';
     }, 16000);
     //adds time countdown to timer at bottom of gameboard
-    var endCountdown = function () {
-    };
     var handleTimer = function () {
       if(count === 0) {
         clearInterval(timer);
-        endCountdown();
         $('#count-timer').text(count)
       } else {
         $('#count-timer').text(count)
@@ -183,7 +202,7 @@ $(document).ready(function(){
     var tileVal = parseInt(tileVal);
     if (tileVal % 7 == 0) {
       twoBankValue += 5;
-      playerTwoBank.html('Player Two: ' + twoBankValue);
+      playerTwoBank.html(playerTwoName+ ': ' + twoBankValue);
       var bite = new Audio('http://www.midistern.de/spuk1.wav');
       bite.play();
       var getTile = $(this);
@@ -195,8 +214,13 @@ $(document).ready(function(){
     } else {
     //console.log('does not match instructions');
     //if the tile does not match instructions, displays wrong message briefly, then returns to original value
-      twoBankValue --;
-      playerTwoBank.html('Player Two: ' + twoBankValue);
+      var removeLife = function() {
+        if (playerTwoLives > 0) {
+          playerTwoLives--;
+          livesBox.removeChild(livesBox.lastChild);
+        }
+      }
+      removeLife();
       var badBite = new Audio('http://cd.textfiles.com/sbsw/BEEPCHMS/DITDAT.WAV');
       badBite.play();
       var getTile = $(this);
@@ -215,13 +239,13 @@ $(document).ready(function(){
       var winner;
       var getWinner = function() {
         if (oneBankValue > twoBankValue) {
-          winner = 'Player One wins!';
+          winner = playerOneName + ' wins!';
           //return winner;
         } else if (oneBankValue < twoBankValue) {
-          winner = 'Player Two wins!';
+          winner = playerTwoName + ' wins!';
           //return winner;
         } else if (oneBankValue === twoBankValue) {
-          winner = 'You two are evenly matched. It\'\s a tie!'
+          winner = playerOneName + ' and ' + playerTwoName + ' are evenly matched. It\'\s a tie!'
           //return winner;
         } return winner;
       }    //end of getWinner function
