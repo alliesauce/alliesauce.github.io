@@ -31,7 +31,7 @@ $(document).ready(function(){
   var livesBox;
   var fillLives = function() {
     livesBox = document.getElementById('lives');
-    for (var i = 0; i < 3; i++)
+    for (var i = 0; $('#lives').children().length < 5; i++)
       addLife();
   }
   var addLife = function() {
@@ -157,7 +157,9 @@ $(document).ready(function(){
     setTimeout(function() {
       readyPlayerTwo.hide();
       gameBoard2.show();
-      fillLives();
+      if ($('#lives').children().length < 4) {
+        fillLives();
+      }
     }, 3500);
     var handleTimer = function () {
       if(count === 0) {
@@ -227,7 +229,7 @@ $(document).ready(function(){
       var origTileVal = getTile.html();
       setTimeout(function() {
       getTile.addClass('wrong');
-      getTile.html('Wrong! Minus one point!');
+      getTile.html('Wrong! You lost a life');
       }, 500);
       setTimeout(function() {
         getTile.removeClass('wrong');
