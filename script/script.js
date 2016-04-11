@@ -40,16 +40,10 @@ $(document).ready(function(){
     var life = document.createElement('IMG');
     life.src = 'img/numbermuncher.jpeg';
     livesBox.appendChild(life);
-    /*playerTwoLives ++;
-    //var life = document.createElement('IMG');
-    //life.src = '../img/numbermuncher.jpeg';
-    livesBox.appendChild(life);*/
   }
   fillLives();
   //show gameBoard, hid Ready Player message upon click after three seconds (only first time will work)
   readyPlayerOne.one('click', function() {
-    //console.log('gameboard clicked!');
-    console.log(playerOneName);
     setTimeout(function() {
       readyPlayerOne.hide();
       gameBoard.show();
@@ -73,10 +67,13 @@ $(document).ready(function(){
   gameBoard.one('click', function() {
     $(this).css({'cursor': 'url(img/numbermuncher.jpeg), default'});
     //hides gameboard after 15 seconds, displays Turn Over
-    setTimeout(function() {
+    var playGame = setTimeout(function() {
       gameBoard.hide();
       turnOver.show();
     }, 16000);
+    /*if (playerOneLives == 0) {
+      clearTimeout(playGame);
+    }*/
     //adds time countdown to timer at bottom of gameboard
     var handleTimer = function () {
       /*if (playerOneLives === 0) {
@@ -125,6 +122,9 @@ $(document).ready(function(){
           //remove one life
             //create removeLife function for incorrect guess
           var removeLife = function() {
+            /*if (playerOneLives === 0) {
+              clearTimeout(playGame);
+            }*/
             if (playerOneLives > 0) {
               playerOneLives--;
               livesBox.removeChild(livesBox.lastChild);
